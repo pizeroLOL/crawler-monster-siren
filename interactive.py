@@ -165,6 +165,8 @@ class MansterSirenInteractive:
                 path_detection.sub('!', data['name'])
             is_path(second_path)
             if not os.path.isfile(second_path + '/' + 'info.txt'):
+                while second_path.endswith(" "):
+                    second_path = second_path[:-1]
                 with open(second_path + '/' + 'info.txt', 'w', encoding='utf-8') as f:
                     f.write(f'专辑名称：{data["name"]}\n')
                     f.write(f'专辑属于：{data["belong"]}\n')
